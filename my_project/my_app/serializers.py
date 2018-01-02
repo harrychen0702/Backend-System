@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from my_app.models import movies,directors_by_gross,directors_by_rating
+from my_app.models import movies,directors_by_gross,directors_by_rating,language,country,month_list
 
 class movie_serializer(serializers.ModelSerializer):
     class Meta:
@@ -37,6 +37,17 @@ class director_rating_se(serializers.ModelSerializer):
         fields=('rank','director','ave_rating','number')
 
 
+class language_se(serializers.ModelSerializer):
+    class Meta:
+        model=language
+        fields=('id','language','rating','gross_box_office','number')
 
+class country_se(serializers.ModelSerializer):
+    class Meta:
+        model=country
+        fields=('id','country','rating','gross_box_office','number')
 
-
+class month_list_se(serializers.ModelSerializer):
+    class Meta:
+        model=month_list
+        fields=('id','month','gross_box_office','number','ave_gross','rating')

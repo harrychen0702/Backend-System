@@ -18,10 +18,12 @@ from rest_framework.response import Response
 from my_app.models import movies
 from my_app.models import directors_by_rating
 from my_app.models import directors_by_gross
+from my_app.models import language,country,month_list
 
 from my_app.serializers import movie_serializer
 from my_app.serializers import director_rating_se
 from my_app.serializers import director_gross_se
+from my_app.serializers import language_se,country_se,month_list_se
 
 
 # Create your views here.
@@ -81,3 +83,43 @@ def get_director_by_gross(request,name):
 
 #测试 http://127.0.0.1:8000/director_g/Eric Notarnicola
 
+@api_view(['GET'])
+def get_language_list(request):
+    if(request.method=='GET'):
+        language_list=language.objects.all()[:50]
+        ss=language_se(language_list,many=True)
+        return Response(ss.data)
+
+@api_view(['GET'])
+def get_language_detail(request,name):
+    try:
+        language1=language.objects.get(language=name)
+    except language1.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if (request.method=='GET'):
+        ss=language_se(language1)
+        return Response(ss.data)
+
+@api_view(['GET'])
+def get_country_list(request):
+    if (request.method == 'GET'):
+        country_list = country.objects.all()
+        ss = country_se(country_list, many=True)
+        return Response(ss.data)
+
+@api_view(['GET'])
+def get_country_detail(request,name):
+    try:
+        country1=country.objects.get(country=name)
+    except country1.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if (request.method=='GET'):
+        ss=country_se(country1)
+        return Response(ss.data)
+
+@api_view(['GET'])
+def get_month_list(request):
+    if(request.method== 'GET'):
+        month_list1=month_list.objects.all()
+        ss=month_list_se(month_list1,many=True)
+        return Response(ss.data)

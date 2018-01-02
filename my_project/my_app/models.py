@@ -42,3 +42,28 @@ class directors_by_rating(models.Model):
     number = models.IntegerField(db_column='number', default=0)
 
 
+class language(models.Model):
+    id=models.IntegerField(db_column='id',default='None',primary_key=True)
+    language=models.CharField(max_length=100,db_column='language',default='NULL')
+    rating=models.FloatField(db_column='rating',default=0)
+    gross_box_office=models.IntegerField(db_column='gross_box_office',default=0)
+    number=models.IntegerField(db_column='number',default=0)
+
+class country(models.Model):
+    id = models.IntegerField(db_column='id', default='None', primary_key=True)
+    country=models.CharField(max_length=100,db_column='country',default='NULL')
+    rating=models.FloatField(db_column='rating',default=0)
+    gross_box_office=models.FloatField(db_column='gross_box_office',default=0)
+    number = models.IntegerField(db_column='number', default=0)
+
+class month_list(models.Model):
+    id = models.IntegerField(db_column='id', default='None', primary_key=True)
+    month=models.CharField(max_length=20,db_column='month',default='NULL')
+    rating=models.FloatField(db_column='rating',default=0)
+    gross_box_office = models.IntegerField(db_column='gross_box_office', default=0)
+    number = models.IntegerField(db_column='number', default=0)
+    ave_gross= models.IntegerField(db_column='ave_gross', default=0)
+
+
+
+

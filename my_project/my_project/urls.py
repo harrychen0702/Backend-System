@@ -25,6 +25,12 @@ urlpatterns = [
     url(r'^movies_list/', mv.movies_list),   #一定要注意斜杠的问题
     url(r'^director_r/(?P<name>[a-zA-Z ]+)$',mv.get_director_by_rating),
     url(r'^director_g/(?P<name>[a-zA-Z ]+)$',mv.get_director_by_gross),
+    url(r'^language_list/',mv.get_language_list),
+    url(r'^language/(?P<name>[a-zA-Z ]+)$',mv.get_language_detail),
+    url(r'^country_list/',mv.get_country_list),
+    url(r'^country/(?P<name>[a-zA-Z ]+)$',mv.get_country_detail),
+    url(r'^month_list/',mv.get_month_list),
+
 
 ]
 
