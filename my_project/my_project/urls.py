@@ -30,6 +30,10 @@ urlpatterns = [
     url(r'^country_list/',mv.get_country_list),
     url(r'^country/(?P<name>[a-zA-Z ]+)$',mv.get_country_detail),
     url(r'^month_list/',mv.get_month_list),
+    url(r'^production/(?P<name>[a-zA-Z /]+)$',mv.get_production),
+    url(r'^actor_by_gross/(?P<name>[a-zA-Z /]+)$',mv.get_actor_by_gross),
+    url(r'^actor_by_rating/(?P<name>[a-zA-Z /]+)$',mv.get_actor_by_rating),
+
 
 
 ]

@@ -64,6 +64,42 @@ class month_list(models.Model):
     number = models.IntegerField(db_column='number', default=0)
     ave_gross= models.IntegerField(db_column='ave_gross', default=0)
 
+class production(models.Model):
+    id = models.IntegerField(db_column='id', default='None', primary_key=True)
+    production = models.CharField(max_length=100, db_column='production', default='NULL')
+    ave_gross = models.FloatField(db_column='ave_gross', default=0)
+    ave_rating = models.FloatField(db_column='ave_rating', default=0)
+    gross_box_office = models.FloatField(db_column='gross_box_office', default=0)
+    number = models.IntegerField(db_column='number', default=0)
+
+
+
+class actor_by_gross(models.Model):
+    rank = models.IntegerField(primary_key=True, db_column='rank')
+    actor=models.CharField(max_length=100, db_column='actor', default='NULL')
+    ave_rating = models.FloatField(db_column='ave_rating', default=0)
+    gross_box_office = models.FloatField(db_column='gross_box_office', default=0)
+    number = models.IntegerField(db_column='number', default=0)
+
+class actor_by_rating(models.Model):
+    rank = models.IntegerField(primary_key=True, db_column='rank')
+    actor = models.CharField(max_length=100, db_column='actor', default='NULL')
+    ave_rating = models.FloatField(db_column='ave_rating', default=0)
+    gross_box_office = models.FloatField(db_column='gross_box_office', default=0)
+    number = models.IntegerField(db_column='number', default=0)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -19,11 +19,12 @@ from my_app.models import movies
 from my_app.models import directors_by_rating
 from my_app.models import directors_by_gross
 from my_app.models import language,country,month_list
+from my_app.models import production,actor_by_gross,actor_by_rating
 
 from my_app.serializers import movie_serializer
 from my_app.serializers import director_rating_se
 from my_app.serializers import director_gross_se
-from my_app.serializers import language_se,country_se,month_list_se
+from my_app.serializers import language_se,country_se,month_list_se,production_se,actor_gross_se,actor_rating_se
 
 
 # Create your views here.
@@ -123,3 +124,37 @@ def get_month_list(request):
         month_list1=month_list.objects.all()
         ss=month_list_se(month_list1,many=True)
         return Response(ss.data)
+
+@api_view(['GET'])
+def get_production(request,name):
+    try:
+        p1=production.objects.get(production=name)
+    except p1.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if(request.method=='GET'):
+        p2=production_se(p1)
+        return Response(p2.data)
+
+@api_view(['GET'])
+def get_actor_by_gross(request,name):
+    try:
+        a1=actor_by_gross.objects.get(actor=name)
+    except a1.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if(request.method=='GET'):
+        a2=actor_gross_se(a1)
+        return Response(a2.data)
+
+@api_view(['GET'])
+def get_actor_by_rating(request,name):
+    try:
+        a1 = actor_by_rating.objects.get(actor=name)
+    except a1.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if (request.method == 'GET'):
+        a2 = actor_rating_se(a1)
+        return Response(a2.data)
+
+
+
+
