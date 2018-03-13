@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from my_app.models import movies,directors_by_gross,directors_by_rating,language,country,month_list,production,actor_by_gross,actor_by_rating
+from my_app.models import movies,directors_by_gross,directors_by_rating,language,country,month_list,production,actor_by_gross,actor_by_rating,year_list,actor2,actor3
 
 class movie_serializer(serializers.ModelSerializer):
     class Meta:
@@ -34,7 +34,7 @@ class director_gross_se(serializers.ModelSerializer):
 class director_rating_se(serializers.ModelSerializer):
     class Meta:
         model=directors_by_rating
-        fields=('rank','director','ave_rating','number')
+        fields=('rank','director','ave_rating','gross_box_office','number')
 
 
 class language_se(serializers.ModelSerializer):
@@ -52,6 +52,12 @@ class month_list_se(serializers.ModelSerializer):
         model=month_list
         fields=('id','month','gross_box_office','number','ave_gross','rating')
 
+class year_list_se(serializers.ModelSerializer):
+    class Meta:
+        model=year_list
+        fields=('year','gross_box_office','number','ave_gross','ave_rating')
+
+
 class production_se(serializers.ModelSerializer):
     class Meta:
         model=production
@@ -66,3 +72,17 @@ class actor_rating_se(serializers.ModelSerializer):
     class Meta:
         model=actor_by_rating
         fields=('rank','actor','ave_rating','gross_box_office','number')
+
+class actor2_se(serializers.ModelSerializer):
+    class Meta:
+        model=actor2
+        fields = ('actor', 'ave_rating', 'gross_box_office','ave_gross','number')
+
+
+class actor3_se(serializers.ModelSerializer):
+    class Meta:
+        model=actor3
+        fields = ('actor', 'ave_rating', 'gross_box_office','ave_gross', 'number')
+
+
+
