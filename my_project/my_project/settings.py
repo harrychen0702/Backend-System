@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-ALLOWED_HOSTS = ['51.145.25.169']
+ALLOWED_HOSTS = ['51.145.25.169','127.0.0.1']
 
 
 # Internationalization
