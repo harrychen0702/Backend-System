@@ -48,6 +48,7 @@ MIDDLEWARE = [   #中间件
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'my_app.middleware.corsMiddleware'
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -89,7 +90,7 @@ DATABASES = {
         'NAME': 'test_on_server',
         'USER': 'root',
         'PASSWORD': 'harry63779588',
-        'HOST': '51.145.25.169',
+        'HOST': '51.145.42.8',
         'PORT': '3306'
     }   
 }
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-ALLOWED_HOSTS = ['51.145.25.169','127.0.0.1']
+ALLOWED_HOSTS = ['51.145.42.8','127.0.0.1']
 
 
 # Internationalization
